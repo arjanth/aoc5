@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace aoc5
@@ -9,6 +10,7 @@ namespace aoc5
         {
             char[] binary = new char[10];
             int maxseatid = int.MinValue;
+            var allseatids = new List<int>();
 
             foreach (string line in File.ReadLines(@"C:\Repos\aoc5\input\binaries.txt"))
             {
@@ -18,13 +20,17 @@ namespace aoc5
                 int seatid = row * 8 + column;
                 Console.WriteLine($"binary: {line} row: {row.ToString()} column: {column} seatid: {seatid}");
                 maxseatid = Math.Max(maxseatid, seatid);
+                allseatids.Add(seatid);
             }
 
             Console.WriteLine($"maxseatid: {maxseatid}");
 
-            
+            for (int i = 1; i < maxseatid+1; i++)
+            {
+                if (!allseatids.Contains(i)) { Console.WriteLine($"free seatid: {i}"); }
+            }
 
-
+            // free seatid: 629 is het antwoord 
 
 
 
