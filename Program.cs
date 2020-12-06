@@ -10,7 +10,7 @@ namespace aoc5
             char[] binary = new char[10];
             int maxseatid = int.MinValue;
 
-            foreach (string line in File.ReadLines(@"C:\Repos\aoc5\input\example.txt"))
+            foreach (string line in File.ReadLines(@"C:\Repos\aoc5\input\binaries.txt"))
             {
                 binary = line.ToCharArray();   //binary = "FBFBBFFRLR".ToCharArray();
                 int row = GetRow(binary);
